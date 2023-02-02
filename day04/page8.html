@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hi() {
+            alert('2시간 안남았다 화이팅!')
+        }
+        function bye() {
+            alert('드디어 끝났다 안녕!')
+        }
+        function idcheck(){
+            id2 = document.getElementById("id2").value //"root"
+            alert(id2.length) // 글자수를 알 수 있음!
+    
+        }
+        function check() {
+            id = "root"
+            pw = "1234"
+            id2 = document.getElementById('id2').value //"root"
+            pw2 = document.getElementById('pw2').value //"1234"
+            //id2가 id와 일치, pw2가 pw와 일치 둘 다 만족하면 
+            //(and조건, &&, 엔퍼센트)
+            //alert("로그인 성공!!!"), 아니면 alert("로그인 실패!!!")
+            result = document.getElementById('result') //div
+            if (id == id2 && pw == pw2) {
+                //alert("로그인 성공!!!")
+                result.innerHTML = "<font color=red>로그인 성공!!!</font><img src='ok(1).jpg' width=200 height=200>"
+            }
+            else {
+                //alert("로그인 실패!!!")
+                result.innerHTML = "<font color=blue>로그인 실패!!!</font><img src='no(1).png' width=200 height=200>"
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="hi()">인사처리</button> <br>
+    <button onclick="bye()">안녕처리</button>
+    <hr color="lime">
+    아이디: <input type="text" id="id2" value=""><br>
+    패스워드: <input type="password" id="pw2" value=""><br>
+    <button onclick="check()"> 로그인처리</button> <br>
+    <div id="result">
+        결과 들어갈 곳.
+    </div>
+</body>
+
+</html>
