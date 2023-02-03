@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테스트용 돌고래 그림</title>
+    <link herf="test.css" rel="stylesheet">
+    <style>
+        button{
+            color: aqua;
+            background: orange;
+        }
+    </style>
+    <script>
+        function dol(){
+        dol = confirm('그림이 마음에 들어요?')
+    if (dol == true){
+       alert('감사합니다.')
+       result.innerHTML = "<img src='돌고래_안녕.png' width=100 height=100>"
+    }
+    else{
+       alert('흑흑')
+    }
+}
+    </script>
+</head>
+<body>
+    <img src="돌고래1.png">  <br>
+    <button onclick="dol()"> 눌러주세요. </button>
+    <div id="result"></div>
+    </div>
+</body>
+</html>

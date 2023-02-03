@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Checkboxradio - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "input" ).checkboxradio();
+  } );
+  </script>
+</head>
+<body>
+<div class="widget">
+  <h1>이어폰 상품 검색</h1>
+ 
+  <h2>상품 정렬</h2>
+  <fieldset>
+    <legend>정렬기준 </legend>
+    <label for="radio-1">낮은 가격순</label>
+    <input type="radio" name="radio-1" id="radio-1">
+    <label for="radio-2">인기순</label>
+    <input type="radio" name="radio-1" id="radio-2">
+    <label for="radio-3">이름순</label>
+    <input type="radio" name="radio-1" id="radio-3">
+  </fieldset>
+ 
+  <h2>브랜드별</h2>
+  <fieldset>
+    <legend> 브랜드 선택 </legend>
+    <label for="checkbox-1">애플</label>
+    <input type="checkbox" name="checkbox-1" id="checkbox-1">
+    <label for="checkbox-2">삼성</label>
+    <input type="checkbox" name="checkbox-2" id="checkbox-2">
+    <label for="checkbox-3">소니</label>
+    <input type="checkbox" name="checkbox-3" id="checkbox-3">
+    <label for="checkbox-4">보스</label>
+    <input type="checkbox" name="checkbox-4" id="checkbox-4">
+  </fieldset>
+ 
+  <h2>기능별</h2>
+  <fieldset>
+    <legend>기능 선택 </legend>
+    <label for="checkbox-nested-1">무선
+      <input type="checkbox" name="checkbox-nested-1" id="checkbox-nested-1">
+    </label>
+    <label for="checkbox-nested-2">노이즈 캔슬링
+      <input type="checkbox" name="checkbox-nested-2" id="checkbox-nested-2">
+    </label>
+    <label for="checkbox-nested-3">무선 충전
+      <input type="checkbox" name="checkbox-nested-3" id="checkbox-nested-3">
+    </label>
+    <label for="checkbox-nested-4">특수 코덱 지원
+      <input type="checkbox" name="checkbox-nested-4" id="checkbox-nested-4">
+    </label>
+  </fieldset>
+</div>
+ 
+ 
+</body>
+</html>
