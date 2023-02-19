@@ -1,0 +1,16 @@
+package 복습;
+
+public class Mask {
+	int count;
+	String color;
+	int price;
+	public Mask(String color, int price, int count)  {
+		this.color = color;
+		this.price = price;
+		this.count = count;
+	}
+	@Override
+	public String toString() {
+		return "Mask [count=" + count + ", color=" + color + ", price=" + price + "]";
+	}
+}
