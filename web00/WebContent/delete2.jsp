@@ -1,7 +1,11 @@
+<%@page import="multi.BbsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
     String no = request.getParameter("no"); //String, "100" 
+    
+    BbsDAO dao = new BbsDAO();
+    dao.delete(Integer.parseInt(no));
     %>
 <!DOCTYPE html>
 <html>

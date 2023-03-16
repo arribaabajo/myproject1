@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class MemberDAO3 { //CRUD
+public class MovieDAO { //CRUD
 
 	public ArrayList<MemberVO> list() {
 		ResultSet rs = null; //항목명 + 결과 데이터를 담고 있는 테이블 
@@ -103,7 +103,7 @@ public class MemberDAO3 { //CRUD
 			Locale.setDefault(Locale.US); //맥 locale에러나신 분들만!!!
 			
 			// 2.오라클 11g에 연결해보자.(java --- oracle) 
-			String url = "jdbc:mysql://localhost:3306/multi";
+			String url = "jdbc:mysql@localhost:3306:multi";
 			String user = "root";
 			String password = "1234";
 			Connection con = DriverManager.getConnection(url, user, password); //Connection
@@ -203,13 +203,12 @@ public class MemberDAO3 { //CRUD
 	
 	//1. 가방을 받아서 저장해두자.
 	//2. 필요할 때 가방에서 값들을 하나씩 꺼내자.
-	public int update(MemberVO bag) {
+	public int update(MovieVO bag) {
 		int result = 0;
 		try {
 			// 1.오라클 11g와 연결한 부품 설정
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("1. 오라클과 자바 연결할 부품 설정 성공.");
-			Locale.setDefault(Locale.US); //맥 locale에러나신 분들만!!!
+			System.out.println("1. MySQL과 자바 연결할 부품 설정 성공.");
 			
 			// 2.오라클 11g에 연결해보자.(java --- oracle) 
 			String url = "jdbc:mysql://localhost:3306/multi";
@@ -217,7 +216,7 @@ public class MemberDAO3 { //CRUD
 			String password = "1234";
 			Connection con = DriverManager.getConnection(url, user, password); //Connection
 			//String data = JOptionPane.showInputDialog("이름입력"); //String, 임아무개 
-			System.out.println("2. 오라클 연결 성공.");
+			System.out.println("2. MySQL 연결 성공.");
 			
 			//ipaddress ==> InetAddress
 			//String url = "http://wwww.naver.com";
@@ -229,13 +228,12 @@ public class MemberDAO3 { //CRUD
 			
 			String sql = "update MEMBER set tel = ? where id = ? ";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
-			ps.setString(1, bag.getTel());
 			ps.setString(2, bag.getId());
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");
 			
 			result = ps.executeUpdate(); //1
 			//insert, update, delete문만!! sql문 실행결과가 int
-			System.out.println("4. SQL문 오라클로 보내기 성공.");
+			System.out.println("4. SQL문 MySQL로 보내기 성공.");
 			if(result == 1) {
 				System.out.println("수정 성공.");
 			}
@@ -247,7 +245,7 @@ public class MemberDAO3 { //CRUD
 	}
 	
 	//public void add2() {
-	public int insert(MemberVO bag) {
+	public int insert(MovieVO bag) {
 		//1. 가방을 받아서 변수에 넣어주세요.
 		int result = 0;
 		
@@ -255,8 +253,6 @@ public class MemberDAO3 { //CRUD
 			// 1.오라클 11g와 연결한 부품 설정
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("1. mysql과 자바 연결할 부품 설정 성공.");
-			Locale.setDefault(Locale.US); //맥 locale에러나신 분들만!!!
-			
 			// 2.오라클 11g에 연결해보자.(java --- oracle) 
 			String url = "jdbc:mysql://localhost:3306/multi";
 			String user = "root";
@@ -274,16 +270,17 @@ public class MemberDAO3 { //CRUD
 			//PreparedStatement가 SQL부품!!
 			
 			//public void insert(String id, String pw, String name, String tel) 
-			String sql = "insert into member values (?, ?, ?, ?)";
+			String sql = "insert into movie values (?, ?, ?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
 			//con부품으로 sql스트링에 있는 것 SQL부품으로 만들어주세요.
 			//R빼고, 인덱스 0부터 시작!!
 			//유일하게 db은 인덱스가 1부터 시작!!
 			//2. 가방에서 값들을 하나씩 꺼내쓰세요. 
 			ps.setString(1, bag.getId()); //ps.setInt(1, no);
-			ps.setString(2, bag.getPw());
-			ps.setString(3, bag.getName());
-			ps.setString(4, bag.getTel());
+			ps.setString(2, bag.getTitle());
+			ps.setString(3, bag.getContent());
+			ps.setString(4, bag.getLocation());
+			ps.setString(5, bag.getDirector());
 			
 			//==> insert into hr.MEMBER values ('a','a','a','a');
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");

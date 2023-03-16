@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class MemberDAO3 { //CRUD
+public class ProductDAO { //CRUD
 
 	public ArrayList<MemberVO> list() {
 		ResultSet rs = null; //항목명 + 결과 데이터를 담고 있는 테이블 
@@ -40,7 +40,7 @@ public class MemberDAO3 { //CRUD
 			//SQL부품으로 만들어주어야 함.
 			//PreparedStatement가 SQL부품!!
 			
-			String sql = "select * from MEMBER";
+			String sql = "select * from PRODUCT";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
 			//삭제!!!! ps.setString(1, id);
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");
@@ -103,7 +103,7 @@ public class MemberDAO3 { //CRUD
 			Locale.setDefault(Locale.US); //맥 locale에러나신 분들만!!!
 			
 			// 2.오라클 11g에 연결해보자.(java --- oracle) 
-			String url = "jdbc:mysql://localhost:3306/multi";
+			String url = "jdbc:mysql@localhost:3306:multi";
 			String user = "root";
 			String password = "1234";
 			Connection con = DriverManager.getConnection(url, user, password); //Connection
@@ -118,7 +118,7 @@ public class MemberDAO3 { //CRUD
 			//SQL부품으로 만들어주어야 함.
 			//PreparedStatement가 SQL부품!!
 			
-			String sql = "select * from MEMBER where id = ? ";
+			String sql = "select * from PRODUCT where id = ? ";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
 			ps.setString(1, id);
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");
@@ -227,7 +227,7 @@ public class MemberDAO3 { //CRUD
 			//SQL부품으로 만들어주어야 함.
 			//PreparedStatement가 SQL부품!!
 			
-			String sql = "update MEMBER set tel = ? where id = ? ";
+			String sql = "update product set tel = ? where id = ? ";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
 			ps.setString(1, bag.getTel());
 			ps.setString(2, bag.getId());
@@ -247,7 +247,7 @@ public class MemberDAO3 { //CRUD
 	}
 	
 	//public void add2() {
-	public int insert(MemberVO bag) {
+	public int insert(ProductVO bag) {
 		//1. 가방을 받아서 변수에 넣어주세요.
 		int result = 0;
 		
@@ -274,22 +274,24 @@ public class MemberDAO3 { //CRUD
 			//PreparedStatement가 SQL부품!!
 			
 			//public void insert(String id, String pw, String name, String tel) 
-			String sql = "insert into member values (?, ?, ?, ?)";
+			String sql = "insert into product values (?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(sql); //PreparedStatement
 			//con부품으로 sql스트링에 있는 것 SQL부품으로 만들어주세요.
 			//R빼고, 인덱스 0부터 시작!!
 			//유일하게 db은 인덱스가 1부터 시작!!
 			//2. 가방에서 값들을 하나씩 꺼내쓰세요. 
 			ps.setString(1, bag.getId()); //ps.setInt(1, no);
-			ps.setString(2, bag.getPw());
-			ps.setString(3, bag.getName());
-			ps.setString(4, bag.getTel());
+			ps.setString(2, bag.getName());
+			ps.setString(3, bag.getContent());
+			ps.setInt(4, bag.getPrice());
+			ps.setString(5, bag.getCompany());
+			ps.setString(6, bag.getImg());
 			
 			//==> insert into hr.MEMBER values ('a','a','a','a');
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");
 			
 			result = ps.executeUpdate(); //1
-			System.out.println("4. SQL문 오라클로 보내기 성공.");
+			System.out.println("4. SQL문 mysql로 보내기 성공.");
 			if(result == 1) {
 				System.out.println("회원가입 성공!");
 			}
