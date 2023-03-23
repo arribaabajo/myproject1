@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text.javascript">
+	function me(){
+	name = document.getElementById("name").value
+	com = document.getElementById("com").value
+	level = document.getElementById("level").value
+	gender = document.getElementById("gender").value
+	total = com + "회사에 " + level + "으로 있는 "+name+"입니다."
+}
+</script>
+<body>
+	이름 입력: <input id='name' value='홍길동'><br>
+	회사명 입력: <input id='com' value='멀티'><br>
+	직책 입력: <input id='level' value='팀장'><br>
+	성별 입력: <input id='gender' value='남자'><br>
+	<button onclick ="me()">확인</button>
+</body>
+</html>
