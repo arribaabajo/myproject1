@@ -1,5 +1,7 @@
 package com.multi.mvc02;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +54,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping("list")
-	public void list() {
-		
+	public void list(Model model) {
+		ArrayList<MemberVO> list = dao.list();
+		model.addAttribute("list", list);
 	}
 }

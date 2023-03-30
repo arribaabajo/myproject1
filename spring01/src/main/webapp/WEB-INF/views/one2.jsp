@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</script>
 </head>
 <body>
 게시물 검색이 완료되었습니다.

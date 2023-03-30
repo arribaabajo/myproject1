@@ -55,6 +55,11 @@
 		id : <input name="id" value="apple"><br>
 		<button type="submit">서버로 전송</button>
 	</form>
+	<h3>회원 전체검색 화면입니다.</h3>
+	<hr color="red">
+	<form action="list" method="get">
+		<button type="submit">서버로 전송</button>
+	</form>
 	<hr color="red">
 
 	<button type="button">먹통버튼(아무 기능이 없음)</button>

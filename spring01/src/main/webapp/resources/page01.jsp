@@ -5,14 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel = "stylesheet" type="text/css" href="resources/css/out.css">
 </head>
 <body>
-회원검색 처리 요청이 완료되었습니다<br>
-${bag.id}
-${bag.pw}
-${bag.name}
-${bag.tel}
-<hr color="cyan">
+<%
+	Cookie c1 = new Cookie("category", "book");
+	Cookie c2 = new Cookie("ex", "run");
+	
+	response.addCookie(c1);
+	response.addCookie(c2);
+	
+	%>
 </body>
 </html>

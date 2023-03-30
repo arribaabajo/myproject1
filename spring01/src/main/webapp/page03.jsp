@@ -5,14 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel = "stylesheet" type="text/css" href="resources/css/out.css">
 </head>
 <body>
-회원검색 처리 요청이 완료되었습니다<br>
-${bag.id}
-${bag.pw}
-${bag.name}
-${bag.tel}
-<hr color="cyan">
+<%
+	session.setAttribute("view", 0);
+%>
+<hr>서버에 세션 속성등록함. 
+<a href="page04.jsp">session속성가지고오기</a>
 </body>
 </html>

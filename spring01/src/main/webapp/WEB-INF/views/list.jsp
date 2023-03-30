@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel = "stylesheet" type="text/css" href="resources/css/out.css">
 </head>
 <body>
-회원검색 처리 요청이 완료되었습니다<br>
-${bag.id}
-${bag.pw}
-${bag.name}
-${bag.tel}
-<hr color="cyan">
+<c:forEach items="${list}" var="bag">
+${bag.id}<br>
+${bag.pw}<br>
+${bag.name}<br>
+${bag.tel}<br>
+</c:forEach>
 </body>
 </html>

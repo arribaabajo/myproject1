@@ -1,5 +1,7 @@
 package com.multi.mvc02;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +35,9 @@ BbsDAO dao;
 	}
 	
 	@RequestMapping("list2")
-	public void list() {
+	public void list(Model model) {
+		ArrayList<BbsVO> list = dao.list();
+		model.addAttribute("list", list);
 		
 	}
 }

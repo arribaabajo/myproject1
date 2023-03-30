@@ -68,9 +68,9 @@ public class BookDAO {
 				// true이면 있다라는 의미, false이면 없다라는 의미
 				System.out.println("검색결과 있음. 성공.");
 				int id2 = rs.getInt(1); // id
-				String name = rs.getString(2); // name
-				String url2 = rs.getString(3); // url2
-				String img = rs.getString(4); // img
+				String name = rs.getString(2); 
+				String url2 = rs.getString(3); 
+				String img = rs.getString(4); 
 				// 검색결과를 검색화면 UI부분을 주어야 함.
 				bag = new BookVO();
 				bag.setId(id2);
